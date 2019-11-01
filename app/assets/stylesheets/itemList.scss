@@ -1,6 +1,41 @@
 .item{
   &_container{
-    width: 375px;
-    height: 667px;
+    padding: 10px;
+    & li{
+      width: 32%;
+      display: inline-block;
+      margin-bottom: 20px;
+      & p{
+        text-align: center;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-size: 12px;
+        height: 18px;
+      }
+    }
+  }
+  &_image{
+    max-width: 100%;
+  }
+  &_sample{
+    &_shop{
+      color: white;
+    }
+  }
+  &_order{
+    background-color: $itemDetailOrderButton;
+    position: fixed;
+    bottom: 20px;
+    width: 80%;
+    height: 45px;
+    left: 10%;
+    border-radius: 50%;
+    & p{
+      text-align: center;
+      margin-top: 8px;
+      font-size: 20px;
+      color: white;
+    }
   }
 }
