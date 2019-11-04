@@ -1,0 +1,91 @@
+.shopDetail{
+  &_container{
+    background-color: white;
+  }
+  &_head{
+    position: relative;
+    &_img{
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+    }
+  }
+  &_fontOverPhoto{
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    .shopTitle{
+      font-size: 20px;
+      color: white;
+    }
+    .shopDescription{
+      font-size: 15px;
+      color: white;
+    }
+  }
+  &_info{
+    padding: 10px;
+    .businessHours{
+      & p{
+        display: inline-block;
+      }
+    }
+  }
+  &_surplusFood{
+    &_title{
+      background-color: $shopDetailBackground;
+      padding: 15px 10px 0 10px;
+    }
+    &_item{
+      padding: 10px 0;
+      border-top: 1px solid gray;
+      &-block{
+        float: left;
+        width: 47%;
+        text-align: center;
+        margin: 0 5px;
+      }
+      &:after{
+        @include clearfix-after;
+      }
+      &_img{
+        width: 100%;
+        max-height: 120px;
+        object-fit: cover;
+      }
+    }
+    &_btn{
+      padding: 10px;
+      text-align: center;
+      border-top: 1px solid gray;
+      border-bottom: 1px solid gray;
+    }
+  }
+  &_commitmentSpace{
+    &_title{
+    background-color: $shopDetailBackground;
+    padding: 15px 10px 0 10px;
+    }
+    &-photo{
+      padding: 10px 0;
+      border-top: 1px solid gray;
+      &-block{
+        float: left;
+        width: 47%;
+        text-align: center;
+        margin: 0 5px;
+        & p{
+          word-wrap: break-word;
+        }
+      }
+      &:after{
+        @include clearfix-after;
+      }
+    }
+    &-img{
+      width: 100%;
+      max-height: 120px;
+      object-fit: cover;
+    }
+  }
+}
