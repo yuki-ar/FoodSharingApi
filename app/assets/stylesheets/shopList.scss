@@ -1,0 +1,50 @@
+.shop{
+  &_list{
+    background-color: white;
+    border-bottom: 1px solid #DDD;
+    &_image{
+      float: left;
+      width: 150px;
+    }
+    & img{
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+    &:after{
+      @include clearfix-after;
+    }
+    &_discription{
+      float: right;
+      width: calc(100% - 170px);
+    }
+    &_genreAndTime{
+      height: 35px;
+      & p{
+        float: left;
+      }
+      &:after{
+        @include clearfix-after;
+      }
+    }
+    &_time{
+      line-height: 35px;
+    }
+    
+  }
+  
+  &_genre{
+    padding: 5px;
+    float: left;
+    & p{
+      background-color: $shopGenreColor;
+      color: gray;
+      display: inline;
+      padding: 5px;
+      font-size: 8px;
+    }
+  }
+  &_title{
+    font-size: 20px;
+  }
+}
