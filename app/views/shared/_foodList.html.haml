@@ -1,0 +1,6 @@
+%li<
+  .item_list
+    = link_to item_path(item.id), class: "item_link" do
+      = image_tag item.itemImages[0].image.url, class: "item_image"
+      %p.item_sample_item #{item.name}
+      %p.item_sample_shop #{item.shop.name}

@@ -1,5 +1,4 @@
 .shop_container
-  - 15.times do
-    = render 'sampleHtml/sampleShop'
+  = render partial: 'shared/shopList', collection: @shops, as: "shop"
   
   

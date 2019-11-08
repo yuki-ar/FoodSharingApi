@@ -3,25 +3,25 @@
   .shopDetail_head
     = image_tag 'sampleShop1.jpg', class: "shopDetail_head_img"
     .shopDetail_fontOverPhoto
-      %h1.shopTitle 水野研究室
-      %p.shopDescription Sample Description
+      %h1.shopTitle #{@shop.name}
+      %p.shopDescription #{@shop.description}
   .shopDetail_info
-    %p ¥501 ~ 1000
+    %p ¥#{@shop.averagePrice}
     .businessHours
       %p 営業時間
-      %p 16:00 ~ 19:00
+      %p #{@shop.businessHoursStart} ~ #{@shop.businessHoursEnd}
   .shopDetail_surplusFood_title
     %p 余剰食品
   .shopDetail_surplusFood_item
     .shopDetail_surplusFood_item-block
-      = image_tag 'タピオカ.jpg', class: "shopDetail_surplusFood_item_img", alt: "https://www.pakutaso.com/20190608168post-21369.html"
-      %p.shopDetail_surplusFood_item-p タピオカジュース
+      = image_tag @shop.items[0].itemImages[0].image.url, class: "shopDetail_surplusFood_item_img"
+      %p.shopDetail_surplusFood_item-p #{@shop.items[0].name}
     .shopDetail_surplusFood_item-block
-      = image_tag '緑黄色野菜と果物のスムージーのフリー画像.jpg', alt: "https://www.pakutaso.com/20180243033post-15065.html", class: "shopDetail_surplusFood_item_img"
-      %p.shopDetail_surplusFood_item-p 野菜と果物のスムージー
+      = image_tag @shop.items[1].itemImages[0].image.url, class: "shopDetail_surplusFood_item_img"
+      %p.shopDetail_surplusFood_item-p #{@shop.items[1].name}
   .shopDetail_surplusFood_btn
-    -# = link_to 
-    %p 売れ残り商品一覧を見る　>
+    = link_to items_path(@shop.id) do
+      %p 売れ残り商品一覧を見る　>
   .shopDetail_commitmentSpace
     .shopDetail_commitmentSpace_title
       %p こだわりの空間

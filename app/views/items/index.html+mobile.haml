@@ -1,11 +1,4 @@
 .item_container
   %ul
-    %li<
-      .item_list
-        = link_to item_path(1), class: "item_link" do
-          = image_tag "sampleFood.jpg", class: "item_image"
-          %p.item_sample_item 春菊のケークサクレのフリー画像（写真）
-          %p.item_sample_shop sample shop
-    - 15.times do
-      = render 'sampleHtml/sampleItem'
+    = render partial: 'shared/foodList', collection: @items, as: 'item'
     

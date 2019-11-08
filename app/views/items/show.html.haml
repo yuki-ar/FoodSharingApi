@@ -1,11 +1,11 @@
 .item_detail
   .item_detail_description
-    = image_tag 'sampleFood.jpg', class: "item_detail_img", alt: "https://www.pakutaso.com/20171221353post-14548.html"
-    %h1 春菊のケークサクレ
-    %p この写真の画像は無料で使えるぱくたそオリジナルのフリー素材です。
+    = image_tag @item.itemImages[0].image, class: "item_detail_img", alt: "https://www.pakutaso.com/20171221353post-14548.html"
+    %h1 #{@item.name}
+    %p #{@item.description}
   .item_detail_shop
-    %h2 SampleShop
-    %p 京都府京都市北区紫竹大門町
-    %a http://example.com
+    %h2 #{@item.shop.name}
+    %p #{@item.shop.adress}
+    %a @item.shop.url
   .item_order
     %p 注文する

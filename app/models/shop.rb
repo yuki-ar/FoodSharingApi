@@ -1,5 +1,7 @@
 class Shop < ApplicationRecord
   has_many :shopImages
+  has_many :items
+
   enum averagePrice: {
     "0~500":1, "501~1000":2, "1001~1500":3
   }
@@ -10,7 +12,11 @@ class Shop < ApplicationRecord
   }
 
   # 出店機能未実装のためこちらも仮置き
-  enum businessHoursStart: {
+  enum businessHoursEnd: {
     "19:00":1
+  }
+
+  enum genre: {
+    "洋菓子":1
   }
 end
