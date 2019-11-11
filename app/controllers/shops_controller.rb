@@ -6,5 +6,6 @@ class ShopsController < ApplicationController
 
   def show
     @shop = Shop.find(params[:id])
+    @hiddenIosTitle = @shop.name
   end
 end

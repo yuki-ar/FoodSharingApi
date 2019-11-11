@@ -5,13 +5,17 @@ class ItemsController < ApplicationController
     if params[:format].present?
       shopId = params[:format] 
       @items = Shop.find(shopId).items
+      @items = Item.where(["shop_id = ? and status = ?", shopId, "1"])
+      @hiddenIosTitle = "#{Shop.find(shopId).name}の商品"
     else
       @items = Item.all
+      @items = Item.where(status: 1)
     end
   end
 
   def show
     @item = Item.find(params[:id])
+    @hiddenIosTitle = @item.name
   end
 
   private

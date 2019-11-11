@@ -1,6 +1,10 @@
 .item_detail
   .item_detail_description
-    = image_tag @item.itemImages[0].image, class: "item_detail_img", alt: "https://www.pakutaso.com/20171221353post-14548.html"
+    .item_detail_img-container
+      - @item.itemImages.each do |i|
+        = image_tag i.image.url , class: "item_detail_img", alt: "https://www.pakutaso.com/20171221353post-14548.html"
+    %p.itemImagePoint-l ←
+    %p.itemImagePoint-r →
     %h1 #{@item.name}
     %p #{@item.description}
   .item_detail_shop
@@ -8,4 +12,5 @@
     %p #{@item.shop.adress}
     %a @item.shop.url
   .item_order
-    %p 注文する
+    = link_to purchases_path(@item.id), class: "item_link" do
+      %p 注文する

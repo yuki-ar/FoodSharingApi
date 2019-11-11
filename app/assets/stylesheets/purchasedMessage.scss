@@ -1,0 +1,17 @@
+.purchasedMessage{
+  width: 70%;
+  border-radius: 50%;
+  position: absolute;
+  top: 45%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: inline;
+  background-color: $itemDetailOrderButton;
+  height: 60px;
+  padding-top: 15px;
+  & p{
+    text-align: center;
+    color: white;
+  }
+}

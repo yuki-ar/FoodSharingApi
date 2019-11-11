@@ -1,10 +1,14 @@
 -# 参考デザインhttps://www.hotpepper.jp/　（スマホ)
 .shopDetail_container
   .shopDetail_head
-    = image_tag 'sampleShop1.jpg', class: "shopDetail_head_img"
+    .shopDetail-img_container
+      - @shop.shopImages.each do |i|
+        = image_tag i.image.url , class: "shopDetail_head_img"
     .shopDetail_fontOverPhoto
       %h1.shopTitle #{@shop.name}
       %p.shopDescription #{@shop.description}
+    %p.shopImagePoint-l ←
+    %p.shopImagePoint-r →
   .shopDetail_info
     %p ¥#{@shop.averagePrice}
     .businessHours
@@ -20,7 +24,7 @@
       = image_tag @shop.items[1].itemImages[0].image.url, class: "shopDetail_surplusFood_item_img"
       %p.shopDetail_surplusFood_item-p #{@shop.items[1].name}
   .shopDetail_surplusFood_btn
-    = link_to items_path(@shop.id) do
+    = link_to items_path(@shop.id), class: "item_link" do
       %p 売れ残り商品一覧を見る　>
   .shopDetail_commitmentSpace
     .shopDetail_commitmentSpace_title
