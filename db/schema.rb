@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191107041928) do
+ActiveRecord::Schema.define(version: 20191112065730) do
 
   create_table "commitment_space_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "image"
@@ -40,10 +40,30 @@ ActiveRecord::Schema.define(version: 20191107041928) do
     t.index ["shop_id"], name: "index_items_on_shop_id"
   end
 
+  create_table "purchased_histories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "user_id", default: 1, null: false
+    t.integer "shop_id", null: false
+    t.integer "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_purchased_histories_on_item_id"
+    t.index ["shop_id"], name: "index_purchased_histories_on_shop_id"
+    t.index ["user_id"], name: "index_purchased_histories_on_user_id"
+  end
+
   create_table "shop_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "image"
     t.bigint "shop_id"
     t.index ["shop_id"], name: "index_shop_images_on_shop_id"
+  end
+
+  create_table "shop_reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "reviewStar", null: false
+    t.string "review", null: false
+    t.integer "user_id", default: 1, null: false
+    t.bigint "shop_id", null: false
+    t.index ["shop_id"], name: "index_shop_reviews_on_shop_id"
+    t.index ["user_id"], name: "index_shop_reviews_on_user_id"
   end
 
   create_table "shops", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -63,4 +83,5 @@ ActiveRecord::Schema.define(version: 20191107041928) do
   add_foreign_key "commitment_spaces", "shops"
   add_foreign_key "item_images", "items"
   add_foreign_key "shop_images", "shops"
+  add_foreign_key "shop_reviews", "shops"
 end

@@ -12,5 +12,5 @@
     %p #{@item.shop.adress}
     %a @item.shop.url
   .item_order
-    = link_to purchases_path(@item.id), class: "item_link" do
+    = link_to purchases_path(item: @item.id, shop: @item.shop.id), class: "item_link" do
       %p 注文する

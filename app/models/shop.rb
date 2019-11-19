@@ -1,6 +1,7 @@
 class Shop < ApplicationRecord
   has_many :shopImages
   has_many :items
+  has_many :purchased_histories
 
   enum averagePrice: {
     "0~500":1, "501~1000":2, "1001~1500":3

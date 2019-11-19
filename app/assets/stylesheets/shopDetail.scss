@@ -51,6 +51,12 @@
   }
   &_info{
     padding: 10px;
+    position: relative;
+    &-reviewLink{
+      position: absolute;
+      right: 15px;
+      top: 20px;
+    }
     .businessHours{
       & p{
         display: inline-block;

@@ -1,13 +1,22 @@
 = link_to shop_path(shop.id), class: "item_link" do 
   .shop_list
     .shop_list_image
-      = image_tag shop.items[0].itemImages[0].image.url
+      - if controller.controller_name == "shops"
+        = image_tag shop.items[0].itemImages[0].image.url
+      - if controller.controller_name == "purchased_history"
+        = image_tag shop.shop.items[0].itemImages[0].image.url
     .shop_list_discription
-      %p.shop_title #{shop.name}
-      .shop_list_genreAndTime
-        .shop_genre
-          %p #{shop.genre}
-        %p.shop_list_time #{shop.businessHoursStart} ~ #{shop.businessHoursEnd}
-      .shop_item
-        %p 残り#{shop.items.length}個
-        %p 東京駅から10分
+      - if controller.controller_name == "shops"
+        %p.shop_title #{shop.name}
+      - if controller.controller_name == "purchased_history"
+        %p.shop_title #{shop.shop.name}
+      - if controller.controller_name == "purchased_history"
+        %p #{shop.item.name} など
+      - if controller.controller_name == "shops"
+        .shop_list_genreAndTime
+          .shop_genre
+            %p #{shop.genre}
+          %p.shop_list_time #{shop.businessHoursStart} ~ #{shop.businessHoursEnd}
+        .shop_item
+          %p 残り#{shop.items.length}個
+          %p 東京駅から10分

@@ -11,6 +11,8 @@
     %p.shopImagePoint-r →
   .shopDetail_info
     %p ¥#{@shop.averagePrice}
+    = link_to "#", class: "shopDetail_info-reviewLink" do
+      %p レビューを書く
     .businessHours
       %p 営業時間
       %p #{@shop.businessHoursStart} ~ #{@shop.businessHoursEnd}
