@@ -1,0 +1,54 @@
+%h2 Sign up
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = render "devise/shared/error_messages", resource: resource
+  .field
+    = f.label :email
+    %br/
+    = f.email_field :email, autofocus: true, autocomplete: "email"
+    %p 以下基本情報
+    = f.label :name
+    %br/
+    = f.text_field :name, value: "sampleShop ※開発環境のためデフォルト値あり"
+    %br/
+    = f.label :description
+    %br/
+    = f.text_area :description, value: "sampleDescription ※開発環境のためデフォルト値あり"
+    %br/
+    = f.label :genre
+    %br/
+    = f.select :genre, Shop.genres.keys, {include_blank: "---"}, class: ""
+    %br/
+    = f.label :averagePrice
+    %br/
+    = f.select :averagePrice, Shop.averagePrices.keys, {include_blank: "---"}, class: ""
+    %br/
+    = f.label :businessHoursStart
+    %br/
+    = f.select :businessHoursStart, Shop.businessHoursStarts.keys, {include_blank: "---"}, class: ""
+    %br/
+    = f.label :businessHoursEnd
+    %br/
+    = f.select :businessHoursEnd, Shop.businessHoursEnds.keys, {include_blank: "---"}, class: ""
+    %br/
+    = f.label :adress
+    %br/
+    = f.text_area :adress, value: "京都府京都市伏見区白銀町6-1-6 ※開発環境のためデフォルト値あり"
+    %br/
+    = f.label :url
+    %br/
+    = f.text_field :url, value: "http://sample.com ※開発環境のためデフォルト値あり"
+    
+  .field
+    = f.label :password
+    - if @minimum_password_length
+      %em
+        (#{@minimum_password_length} characters minimum)
+    %br/
+    = f.password_field :password, autocomplete: "new-password"
+  .field
+    = f.label :password_confirmation
+    %br/
+    = f.password_field :password_confirmation, autocomplete: "new-password"
+  .actions
+    = f.submit "Sign up"
+= render "shops/shared/links"

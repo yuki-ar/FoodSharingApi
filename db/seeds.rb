@@ -21,7 +21,7 @@ con.execute("ALTER TABLE shops AUTO_INCREMENT = 1;")
 
 
 def mizunoLab
-  shop = Shop.new(name: "水野研究室", description: "SampleDescription", genre: 1, averagePrice: 1, businessHoursStart: 1, businessHoursEnd: 1, adress: "京都府京都市北区紫竹大門町", url: "http://example.com")
+  shop = Shop.new(name: "水野研究室", description: "SampleDescription", genre: 1, averagePrice: 1, businessHoursStart: 1, businessHoursEnd: 1, adress: "京都府京都市北区紫竹大門町", url: "http://example.com", email: "mizuno@gmail.com", password: "00000000")
   3.times do |n|
     shopImage = shop.shopImages.build 
     File.open("app/assets/images/sampleShop#{n+1}.jpg") do |f|
@@ -72,7 +72,7 @@ def mizunoLab
 end
 
 def other1Lab
-  shop = Shop.new(name: "他の研究室", description: "SampleDescription", genre: 1, averagePrice: 1, businessHoursStart: 1, businessHoursEnd: 1, adress: "京都府京都市北区紫竹大門町", url: "http://example.com")
+  shop = Shop.new(name: "他の研究室", description: "SampleDescription", genre: 1, averagePrice: 1, businessHoursStart: 1, businessHoursEnd: 1, adress: "京都府京都市北区紫竹大門町", url: "http://example.com", email: "otherlab@gmail.com", password: "00000000")
   3.times do |n|
     shopImage = shop.shopImages.build 
     File.open("app/assets/images/sampleShop#{n+1}.jpg") do |f|
@@ -121,7 +121,7 @@ def other1Lab
 end
 
 def other2Lab
-  shop = Shop.new(name: "Sample Shop From DB", description: "SampleDescription", genre: 1, averagePrice: 1, businessHoursStart: 1, businessHoursEnd: 1, adress: "京都府京都市北区紫竹大門町", url: "http://example.com")
+  shop = Shop.new(name: "Sample Shop From DB", description: "SampleDescription", genre: 1, averagePrice: 1, businessHoursStart: 1, businessHoursEnd: 1, adress: "京都府京都市北区紫竹大門町", url: "http://example.com", email: "other2lab@gmail.com", password: "00000000")
   3.times do |n|
     shopImage = shop.shopImages.build 
     File.open("app/assets/images/sampleShop#{n+1}.jpg") do |f|
