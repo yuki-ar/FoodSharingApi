@@ -1,0 +1,27 @@
+.shop_review
+  .shop_review-title
+    %h1 #{@shop.name}のレビュー
+  = form_for @review do |f|
+    .shop_review-evaluationForm
+      = f.radio_button :reviewStar, "5", id: "star1"
+      %label{:for => "star1"}
+        %span.text> 最高
+        ★
+      = f.radio_button :reviewStar, "4", id: "star2"
+      %label{:for => "star2"}
+        %span.text> 良い
+        ★
+      = f.radio_button :reviewStar, "3", id: "star3"
+      %label{:for => "star3"}
+        %span.text> 普通
+        ★
+      = f.radio_button :reviewStar, "2", id: "star4"
+      %label{:for => "star4"}
+        %span.text> 悪い
+        ★
+      = f.radio_button :reviewStar, "1", id: "star5"
+      %label{:for => "star5"}
+        %span.text> 最悪
+        ★
+    = f.text_area :review, class: "shop_review-textarea"
+    = f.submit "レビューを送信する", class: "shop_review-submit"

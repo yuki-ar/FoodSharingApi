@@ -13,7 +13,7 @@
           %p 残り#{shop.items.length}個
           %p 東京駅から10分
 - if controller.controller_name == "purchased_history"
-  = link_to purchased_history_path(shop.id), class: "item_link" do 
+  = link_to new_shop_review_path(shop.id), class: "item_link" do 
     .shop_list
       .shop_list_image
         = image_tag shop.shop.items[0].itemImages[0].image.url
