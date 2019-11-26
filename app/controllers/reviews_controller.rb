@@ -2,6 +2,8 @@ class ReviewsController < ApplicationController
   def new
     @shop = Shop.find(params[:shop_id])
     @review = ShopReview.new
+    # TODO user_idを1で仮置き
+    @purchasedItems = PurchasedHistory.where(user_id: 1, shop_id: params[:shop_id]).limit(3).order('id DESC')
   end
 
   def create

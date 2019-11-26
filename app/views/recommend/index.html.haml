@@ -1,0 +1,7 @@
+.shop_container
+  - if @goodStarShopInSelfHistory.nil?
+    -# TODO ジャンルや位置情報をもとにしたおすすめを入れる
+  - if @goodStarShopInSelfHistory.present?
+    .shopDetail_surplusFood_title
+      %p 過去に購入した履歴によるおすすめ
+    = render partial: 'shared/shopList', collection: @goodStarShopInSelfHistory, as: "shop"

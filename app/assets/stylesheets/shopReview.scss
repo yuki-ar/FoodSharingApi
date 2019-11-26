@@ -4,8 +4,20 @@
   }
   padding: 10px;
   &-title{
-    margin-bottom: 15px;
-    font-size: 30px;
+    & h1{
+      margin-bottom: 15px;
+      font-size: 30px;
+    }
+  }
+  &-items{
+    padding: 15px 35px;
+    & h2{
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    & p{
+      text-align: right;
+    }
   }
   &-evaluationForm{
     display: flex;

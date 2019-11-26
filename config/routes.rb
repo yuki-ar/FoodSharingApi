@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   end
   resources :purchases, only: [:index]
   resources :purchased_history, only: [:index, :show]
+  resources :recommend, only: [:index]
 end

@@ -1,10 +1,13 @@
 CommitmentSpaceImage.destroy_all
 CommitmentSpace.destroy_all
 PurchasedHistory.destroy_all
+ShopReview.destroy_all
 con = ActiveRecord::Base.connection
 con.execute("ALTER TABLE commitment_space_images AUTO_INCREMENT = 1;")
 con.execute("ALTER TABLE commitment_spaces AUTO_INCREMENT = 1;")
 con.execute("ALTER TABLE purchased_histories AUTO_INCREMENT = 1;")
+con.execute("ALTER TABLE shop_reviews AUTO_INCREMENT = 1;")
+
 
 ItemImage.destroy_all
 Item.destroy_all

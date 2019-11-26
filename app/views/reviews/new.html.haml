@@ -1,6 +1,12 @@
 .shop_review
   .shop_review-title
     %h1 #{@shop.name}のレビュー
+  .shop_review-items
+    %h2 過去に購入した商品
+    %ul
+      - @purchasedItems.each do |i|
+        %li #{i.item.name}
+      %p など
   = form_for @review do |f|
     .shop_review-evaluationForm
       = f.radio_button :reviewStar, "5", id: "star1"
