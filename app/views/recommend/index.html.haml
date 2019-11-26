@@ -5,3 +5,7 @@
     .shopDetail_surplusFood_title
       %p 過去に購入した履歴によるおすすめ
     = render partial: 'shared/shopList', collection: @goodStarShopInSelfHistory, as: "shop"
+  - if @goodStarShopInAllHistory.present?
+    .shopDetail_surplusFood_title
+      %p 他の人に人気のお店
+    = render partial: 'shared/shopList', collection: @goodStarShopInAllHistory, as: "shop"

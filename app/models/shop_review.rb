@@ -8,13 +8,29 @@ class ShopReview < ApplicationRecord
       @goodStarShopInSelfHistory << ph.shop
     end
     @goodStarShopInSelfHistory.uniq!
-      
-    @goodStarShopInSelfHistory.each_with_index do |shop, i|
+    @goodStarShopInSelfHistory = deleteShopIfFoodIsEmpty(@goodStarShopInSelfHistory)
+    return @goodStarShopInSelfHistory
+  end
+
+  def self.createGoodStarShopInAllHistory
+    @goodStartInAllHistory = []
+    ShopReview.where(reviewStar: 4..Float::INFINITY).order('id DESC'). each do |ph|
+      @goodStartInAllHistory << ph.shop
+    end
+    @goodStartInAllHistory.uniq!
+    @goodStartInAllHistory = deleteShopIfFoodIsEmpty(@goodStartInAllHistory)
+    return @goodStartInAllHistory
+  end
+
+  # private
+
+  def self.deleteShopIfFoodIsEmpty(shops)
+    shops.each_with_index do |shop, i|
       if remainingFoodNil?(shop)
-        @goodStarShopInSelfHistory.delete_at(i)
+        shops.delete_at(i)
       end
     end
-    return @goodStarShopInSelfHistory
+    return shops
   end
 
   def self.remainingFoodNil?(shop)
@@ -26,5 +42,6 @@ class ShopReview < ApplicationRecord
   end
 
   private_class_method :remainingFoodNil?
+  private_class_method :deleteShopIfFoodIsEmpty
 
 end
