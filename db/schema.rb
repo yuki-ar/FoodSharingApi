@@ -58,10 +58,12 @@ ActiveRecord::Schema.define(version: 20191119070000) do
   end
 
   create_table "shop_reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "reviewStar", null: false
+    t.integer "reviewStar", null: false
     t.string "review", null: false
     t.integer "user_id", default: 1, null: false
     t.bigint "shop_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["shop_id"], name: "index_shop_reviews_on_shop_id"
     t.index ["user_id"], name: "index_shop_reviews_on_user_id"
   end
@@ -77,12 +79,11 @@ ActiveRecord::Schema.define(version: 20191119070000) do
     t.string "url", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.index ["email"], name: "index_shops_on_email", unique: true
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
     t.index ["reset_password_token"], name: "index_shops_on_reset_password_token", unique: true
   end
 

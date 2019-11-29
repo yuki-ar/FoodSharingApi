@@ -11,8 +11,8 @@
     %p.shopImagePoint-r →
   .shopDetail_info
     %p ¥#{@shop.averagePrice}
-    = link_to "#", class: "shopDetail_info-reviewLink" do
-      %p レビューを書く
+    -# = link_to "#", class: "shopDetail_info-reviewLink" do
+    -#   %p レビューを書く
     .businessHours
       %p 営業時間
       %p #{@shop.businessHoursStart} ~ #{@shop.businessHoursEnd}
@@ -33,9 +33,43 @@
       %p こだわりの空間
     .shopDetail_commitmentSpace-photo
       .shopDetail_commitmentSpace-photo-block
-        = image_tag 'sampleShop3.jpg', class: "shopDetail_commitmentSpace-img"
-        %p 栄町店で大人気の誕生日会でパシャリ♪おいしい料理とオシャレな空間に包まれて、みんなでワイワイ楽しくおしゃべり☆かわいい猿の人形も乱入！ぜひ、一緒に可愛い猿の人形と写真を撮ってください！サプライズ演出も承ります。お気軽にご相談ください★ 
+        = image_tag @shop.commitmentSpaces[0].commitmentSpaceImages[0].image.url, class: "shopDetail_commitmentSpace-img"
+        %p #{@shop.commitmentSpaces[0].content}
       .shopDetail_commitmentSpace-photo-block
-        = image_tag 'sampleShop3.jpg', class: "shopDetail_commitmentSpace-img"
-        %p 栄町店で大人気の誕生日会でパシャリ♪おいしい料理とオシャレな空間に包まれて、みんなでワイワイ楽しくおしゃべり☆かわいい猿の人形も乱入！ぜひ、一緒に可愛い猿の人形と写真を撮ってください！サプライズ演出も承ります。お気軽にご相談ください★
+        = image_tag @shop.commitmentSpaces[0].commitmentSpaceImages[1].image.url, class: "shopDetail_commitmentSpace-img"
+        %p #{@shop.commitmentSpaces[1].content}
         -# 引用:https://www.hotpepper.jp/strJ000963294/
+  .shopDetail_review
+    .shopDetail_review_title
+      %p 評価とレビュー
+    .shopDetail_review-container
+      %p 平均評価
+      .shopDetail_review-container-stars
+        %label.shopDetail-star{class: "#{'colored-star' if @shopAverageStar >= 1}"}
+          ★
+        %label.shopDetail-star{class: "#{'colored-star' if @shopAverageStar >= 2}"}
+          ★
+        %label.shopDetail-star{class: "#{'colored-star' if @shopAverageStar >= 3}"}
+          ★
+        %label.shopDetail-star{class: "#{'colored-star' if @shopAverageStar >= 4}"}
+          ★
+        %label.shopDetail-star{class: "#{'colored-star' if @shopAverageStar >= 5}"}
+          ★
+      - @shop.shopReviews.each do |re|
+        .shopDetail_review-content
+          .shopDetail_review-content-text
+            %p #{re.review}
+            .shopDetail_review-content-stars
+              %label.shopDetail-star{class: "#{'colored-star' if re.reviewStar >= 1}"}
+                ★
+              %label.shopDetail-star{class: "#{'colored-star' if re.reviewStar >= 2}"}
+                ★
+              %label.shopDetail-star{class: "#{'colored-star' if re.reviewStar >= 3}"}
+                ★
+              %label.shopDetail-star{class: "#{'colored-star' if re.reviewStar >= 4}"}
+                ★
+              %label.shopDetail-star{class: "#{'colored-star' if re.reviewStar >= 5}"}
+                ★
+            %p.shopDetail_review-content-time #{re.created_at.strftime('%Y/%m/%d')}
+          .shopDetail_review-content-reviewer
+            -# TODO user実装したらテーブルから取得

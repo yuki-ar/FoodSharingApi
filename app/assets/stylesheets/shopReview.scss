@@ -47,7 +47,7 @@
   &-evaluationForm label:hover,
   &-evaluationForm label:hover ~ label,
   &-evaluationForm input[type='radio']:checked ~ label{
-    color: #ffcc00;
+    color: $starColor;
   }
   &-textarea{
     width: 100%;

@@ -7,5 +7,6 @@ class ShopsController < ApplicationController
   def show
     @shop = Shop.find(params[:id])
     @hiddenIosTitle = @shop.name
+    @shopAverageStar = ShopReview.where(shop_id: params[:id]).average(:reviewStar).to_i
   end
 end

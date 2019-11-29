@@ -104,6 +104,7 @@
     &-photo{
       padding: 10px 0;
       border-top: 1px solid gray;
+      border-bottom: 1px solid gray;
       &-block{
         float: left;
         width: 47%;
@@ -121,6 +122,46 @@
       width: 100%;
       max-height: 120px;
       object-fit: cover;
+    }
+  }
+  &_review{
+    &_title{
+      background-color: #8080802b;
+      padding: 15px 10px 0 10px;
+    }
+    &-container{
+      padding: 10px;
+      border-top: 1px solid gray;
+      border-bottom: 1px solid gray;
+      &-stars{
+        text-align: center;
+        border-bottom: 1px solid gray;
+        .shopDetail-star{
+          font-size: 50px;
+          
+        }
+        .colored-star{
+          color: $starColor;
+        }
+      }
+    }
+    &-content{
+      position: relative;
+      padding: 10px;
+      border-bottom: 1px solid gray;
+      &-text{
+        width: 75%;
+      }
+      &-time{
+        position: absolute;
+        top: 10px;
+        right: 30px;
+      }
+      &-stars{
+        .colored-star{
+          color: $starColor;
+        }
+      }
     }
   }
 }

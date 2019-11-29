@@ -64,7 +64,17 @@ def mizunoLab
   
   commitmentSpaceContent = "栄町店で大人気の誕生日会でパシャリ♪おいしい料理とオシャレな空間に包まれて、みんなでワイワイ楽しくおしゃべり☆かわいい猿の人形も乱入！ぜひ、一緒に可愛い猿の人形と写真を撮ってください！サプライズ演出も承ります。お気軽にご相談ください★"
   space = CommitmentSpace.create(content: commitmentSpaceContent, shop_id: 1)
-  3.times do |n|
+  2.times do |n|
+    spaceImages = CommitmentSpaceImage.new(commitment_space_id: space.id)
+    File.open("app/assets/images/sampleShop#{n+1}.jpg") do |f|
+      spaceImages.image = f
+    end
+    spaceImages.save!
+  end
+
+  commitmentSpaceContent = "省略"
+  space = CommitmentSpace.create(content: commitmentSpaceContent, shop_id: 1)
+  2.times do |n|
     spaceImages = CommitmentSpaceImage.new(commitment_space_id: space.id)
     File.open("app/assets/images/sampleShop#{n+1}.jpg") do |f|
       spaceImages.image = f
@@ -121,6 +131,16 @@ def other1Lab
     spaceImages.save!
   end
 
+  commitmentSpaceContent = "省略"
+  space = CommitmentSpace.create(content: commitmentSpaceContent, shop_id: 2)
+  2.times do |n|
+    spaceImages = CommitmentSpaceImage.new(commitment_space_id: space.id)
+    File.open("app/assets/images/sampleShop#{n+1}.jpg") do |f|
+      spaceImages.image = f
+    end
+    spaceImages.save!
+  end
+
 end
 
 def other2Lab
@@ -161,6 +181,16 @@ def other2Lab
   end
   
   commitmentSpaceContent = "栄町店で大人気の誕生日会でパシャリ♪おいしい料理とオシャレな空間に包まれて、みんなでワイワイ楽しくおしゃべり☆かわいい猿の人形も乱入！ぜひ、一緒に可愛い猿の人形と写真を撮ってください！サプライズ演出も承ります。お気軽にご相談ください★"
+  space = CommitmentSpace.create(content: commitmentSpaceContent, shop_id: 3)
+  2.times do |n|
+    spaceImages = CommitmentSpaceImage.new(commitment_space_id: space.id)
+    File.open("app/assets/images/sampleShop#{n+1}.jpg") do |f|
+      spaceImages.image = f
+    end
+    spaceImages.save!
+  end
+
+  commitmentSpaceContent = "省略"
   space = CommitmentSpace.create(content: commitmentSpaceContent, shop_id: 3)
   2.times do |n|
     spaceImages = CommitmentSpaceImage.new(commitment_space_id: space.id)
